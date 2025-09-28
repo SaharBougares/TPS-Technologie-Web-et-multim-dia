@@ -1,5 +1,4 @@
 console.log("Bienvenue dans la To-Do List !");
-
 //Sélection des éléments
 const taskInput = document.getElementById("taskInput");
 const addBtn = document.getElementById("addBtn");
@@ -22,12 +21,12 @@ function loadTasks() {
 }
 
 //Fonctions principales
-function ajouterTache() {
+function ajouterTache() { 
   const texte = taskInput.value.trim();
   if (texte === "") {
     alert("Veuillez entrer une tâche !");
     return;
-  }
+  } 
   //Vérifier si la tâche existe déjà
   const existe = tasks.some(task => task.texte.toLowerCase() === texte.toLowerCase());
   if (existe) {
@@ -49,7 +48,7 @@ function supprimerTache(index) {
 }
 
 function terminerTache(index) {
-  tasks[index].completed = true; // ✅ ne permet plus de re-cliquer
+  tasks[index].completed = true; //impossible de  re-cliquer  sur bouton terminer
   saveTasks();
   afficherTaches();
 }
@@ -85,7 +84,7 @@ function afficherTaches() {
     if (task.completed) {
       li.classList.add("completed");
       terminees++;
-      completeBtn.disabled = true; // ✅ désactive le bouton si déjà terminé
+      completeBtn.disabled = true; //désactive le bouton si déjà terminé
     } else {
       enCours++;
       completeBtn.addEventListener("click", () => terminerTache(index));
@@ -106,7 +105,7 @@ function afficherTaches() {
   completedCount.textContent = `${terminees} tâche(s) terminée(s)`;
 }
 
-//ajouterTache/supprimerToutesTaches/afficherTaches
+//ajouterTache/supprimerToutesTaches/afficherTaches :
 addBtn.addEventListener("click", ajouterTache);
 taskInput.addEventListener("keypress", (e) => {
   if (e.key === "Enter") ajouterTache();

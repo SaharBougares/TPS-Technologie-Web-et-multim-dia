@@ -1,0 +1,31 @@
+ Exercices 9 :
+
+## Exercice 9 : Outils & Bonnes pratiques
+
+### 1.  Initialisation du projet TypeScript
+```bash
+tsc --init
+```
+- Fichier `tsconfig.json` créé avec configuration stricte
+
+### 2.  Activation du mode strict
+```json
+{
+  "compilerOptions": {
+    "strict": true,
+    ...
+  }
+}
+```
+
+### 3. Installation d'ESLint et Prettier
+```bash
+npm install eslint prettier @typescript-eslint/parser @typescript-eslint/eslint-plugin -D
+```
+
+### 4.  Configuration ESLint
+- Fichier `.eslintrc.json` créé
+- Fichier `eslint.config.mjs` créé pour ESLint v9
+- Configuration typescript-eslint activée
+
+---

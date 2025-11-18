@@ -1,0 +1,18 @@
+/* Champ OBLIGATOIRE valide (name, classe...) */
+.form-control.ng-valid[required],
+.form-control.ng-valid.required {
+  border-left: 5px solid #42A948;   /* vert */
+  padding-left: 8px;
+}
+
+/* Champ OPTIONNEL valide (surname) */
+.form-control.ng-valid:not([required]) {
+  border-left: 5px solid #17a2b8;   /* bleu/vert */
+  padding-left: 8px;
+}
+
+/* Champ INVALIDE (obligatoire ou non) déjà touché */
+.form-control.ng-touched.ng-invalid {
+  border-left: 5px solid #dc3545;   /* rouge */
+  padding-left: 8px;
+}

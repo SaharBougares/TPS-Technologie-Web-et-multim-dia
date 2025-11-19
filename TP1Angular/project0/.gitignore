@@ -1,0 +1,90 @@
+# See https://docs.github.com/get-started/getting-started-with-git/ignoring-files for more about ignoring files.
+
+# Compiled output
+/dist
+/tmp
+/out-tsc
+/bazel-out
+
+# Node
+/node_modules
+npm-debug.log
+yarn-error.log
+
+# IDEs and editors
+.idea/
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# Visual Studio Code
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.history/*
+
+# Miscellaneous
+/.angular/cache
+.sass-cache/
+/connect.lock
+/coverage
+/libpeerconnection.log
+testem.log
+/typings
+__screenshots__/
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# OS files
+*.swp
+*.swo
+*~
+.AppleDouble
+.LSOverride
+
+# IDE specific files
+*.iml
+*.iws
+*.ipr
+.vscode/
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# Build artifacts
+/dist
+/build
+*.js.map
+*.css.map
+
+# Test coverage
+/coverage
+.nyc_output
+
+# Temporary files
+*.tmp
+*.temp
+.cache
+
+# Documentation files not needed for teacher review
+GUIDE_GITHUB.md
+RESUME_TP1.md
+STRUCTURE_PROJET.md
+DELIVERABLES.md
+README.md
+
+
+COMPLETION_SUMMARY.txt

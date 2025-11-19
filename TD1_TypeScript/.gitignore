@@ -1,0 +1,42 @@
+# Dépendances
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Fichiers compilés
+dist/
+*.js
+*.js.map
+
+# Fichiers de configuration IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Fichiers système
+.DS_Store
+Thumbs.db
+
+# Fichiers de test
+coverage/
+.nyc_output/
+
+# Fichiers temporaires
+*.tmp
+*.temp
+
+# Fichiers de documentation inutiles (ne pas partager avec le professeur)
+GUIDE_UTILISATION.md
+INDEX.md
+README.md
+RESUME_EXECUTION.md
+STRUCTURE_PROJET.md
+SYNTHESE_RENDU.md
+GUIDE_CORRECTION.md
+APERCU_RAPIDE.md
+VERIFICATION_FINALE.md
+LISEZMOI.md
+POUR_LE_PROFESSEUR.md

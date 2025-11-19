@@ -1,0 +1,27 @@
+{
+  "name": "td1-typescript-elearning",
+  "version": "1.0.0",
+  "description": "Plateforme de cours en ligne (E-learning) - Projet TypeScript",
+  "main": "dist/main.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/main.js",
+    "dev": "ts-node main.ts",
+    "watch": "tsc --watch",
+    "clean": "rmdir /s /q dist 2>nul || true"
+  },
+  "keywords": [
+    "typescript",
+    "e-learning",
+    "poo",
+    "generics",
+    "repository-pattern"
+  ],
+  "author": "Étudiant FST",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3"
+  }
+}

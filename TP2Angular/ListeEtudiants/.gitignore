@@ -1,0 +1,73 @@
+# See https://docs.github.com/get-started/getting-started-with-git/ignoring-files for more about ignoring files.
+
+# Compiled output
+/dist
+/tmp
+/out-tsc
+/bazel-out
+
+# Node
+/node_modules
+npm-debug.log
+yarn-error.log
+
+# IDEs and editors
+.idea/
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# Visual Studio Code
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.history/*
+
+# Miscellaneous
+/.angular/cache
+.sass-cache/
+/connect.lock
+/coverage
+/libpeerconnection.log
+testem.log
+/typings
+__screenshots__/
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Documentation files (keep only README.md and REPONSES_TP.txt for professor)
+*.md
+!README.md
+
+# Temporary files
+*.tmp
+*.bak
+*.swp
+*~
+
+# OS specific
+.env.local
+.env.*.local
+
+# Files not needed for professor review (local documentation only)
+INSTRUCTIONS.txt
+GUIDE_EXECUTION.txt
+SYNTHESE_PROJET.txt
+VERIFICATION.txt
+POUR_LE_PROFESSEUR.txt
+DEMARRAGE_RAPIDE.txt
+INDEX.txt
+RESUME_FINAL.txt
+CONFIRMATION.txt
+FINAL_COMPLET.txt
+COMPLET_FINAL.txt
+PROJET_FINALISÉ.txt
+GITHUB_STRUCTURE.txt
+POUR_GITHUB.txt

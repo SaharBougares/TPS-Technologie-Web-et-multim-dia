@@ -1,0 +1,173 @@
+<!-- src/app/book-form/book-form.component.html -->
+
+<form #bookForm="ngForm" (ngSubmit)="onSubmit(bookForm)">
+  <h2>Formulaire Livre</h2>
+
+  <!-- title -->
+  <div>
+  <label for="title">Titre</label>
+ <input
+  type="text"
+  id="title"
+  name="title"
+  [(ngModel)]="book.title"
+  required
+  minlength="3"
+  pattern="^(?![0-9]+$).+"
+  #title="ngModel"
+/>
+  <div *ngIf="title.invalid && title.dirty" style="color: red;">
+  <small *ngIf="title.errors?.['required']">Le titre est obligatoire.</small>
+  <small *ngIf="title.errors?.['minlength']">Minimum 3 caractères.</small>
+  <small *ngIf="title.errors?.['pattern']">
+    Le titre ne peut pas être composé uniquement de chiffres.
+  </small>
+</div>
+</div>
+
+
+  <!-- author -->
+  <div>
+  <label for="author">Auteur</label>
+  <input
+    type="text"
+    id="author"
+    name="author"
+    [(ngModel)]="book.author"
+    required
+    minlength="3"
+    #author="ngModel"
+  />
+  <div *ngIf="author.invalid && author.dirty" style="color: red;">
+    <small *ngIf="author.errors?.['required']">L'auteur est obligatoire.</small>
+    <small *ngIf="author.errors?.['minlength']">Minimum 3 caractères.</small>
+  </div>
+</div>
+
+
+  <!-- publisherEmail -->
+  <div>
+  <label for="publisherEmail">Email éditeur</label>
+  <input
+    type="email"
+    id="publisherEmail"
+    name="publisherEmail"
+    [(ngModel)]="book.publisherEmail"
+    required
+    email
+    #publisherEmail="ngModel"
+  />
+  <div *ngIf="publisherEmail.invalid && publisherEmail.dirty" style="color: red;">
+    <small *ngIf="publisherEmail.errors?.['required']">L'email est obligatoire.</small>
+    <small *ngIf="publisherEmail.errors?.['email']">Format d'email invalide.</small>
+  </div>
+</div>
+
+
+  <!-- publisherPhone (Number tunisien) -->
+  <div>
+  <label for="publisherPhone">Téléphone éditeur (8 chiffres)</label>
+  <input
+    type="tel"
+    id="publisherPhone"
+    name="publisherPhone"
+    [(ngModel)]="book.publisherPhone"
+    pattern="^[0-9]{8}$"
+    #publisherPhone="ngModel"
+  />
+  <div *ngIf="publisherPhone.invalid && publisherPhone.dirty" style="color: red;">
+    <small *ngIf="publisherPhone.errors?.['pattern']">
+      Le numéro doit contenir exactement 8 chiffres.
+    </small>
+  </div>
+</div>
+
+  <!-- releaseDate -->
+ <div>
+  <label for="releaseDate">Date de sortie</label>
+  <input
+    type="date"
+    id="releaseDate"
+    name="releaseDate"
+    [(ngModel)]="book.releaseDate"
+    required
+    (blur)="validateReleaseDate()"
+    #releaseDate="ngModel"
+  />
+  <div *ngIf="releaseDate.dirty" style="color: red;">
+    <small *ngIf="releaseDate.errors?.['required']">
+      La date de sortie est obligatoire.
+    </small>
+    <small *ngIf="dateError">
+      {{ dateError }}
+    </small>
+  </div>
+</div>
+
+
+  <!-- category (select) -->
+  <div>
+  <label for="category">Catégorie</label>
+  <select
+    id="category"
+    name="category"
+    [(ngModel)]="book.category"
+    required
+    #category="ngModel"
+  >
+    <option value="">-- Choisir une catégorie --</option>
+    <option>Roman</option>
+    <option>Science</option>
+    <option>Histoire</option>
+    <option>Informatique</option>
+    <option>Art</option>
+    <option>Autres</option>
+  </select>
+
+  <div *ngIf="category.invalid && category.dirty" style="color: red;">
+    <small>La catégorie est obligatoire.</small>
+  </div>
+</div>
+
+  <!-- isAvailable (checkbox) -->
+  <div>
+  <label for="isAvailable">
+    <input
+      type="checkbox"
+      id="isAvailable"
+      name="isAvailable"
+      [(ngModel)]="book.isAvailable"
+    />
+    Disponible
+  </label>
+</div>
+
+  <!-- stock (facultatif) -->
+  <div>
+  <label for="stock">Stock (optionnel)</label>
+  <input
+    type="number"
+    id="stock"
+    name="stock"
+    [(ngModel)]="book.stock"
+    min="0"
+    #stock="ngModel"
+  />
+  <div *ngIf="stock.invalid && stock.dirty" style="color: red;">
+    <small *ngIf="stock.errors?.['min']">
+      Le stock ne peut pas être négatif.
+    </small>
+  </div>
+</div>
+
+
+  <button type="submit" [disabled]="bookForm.invalid">
+  {{ bookToEdit ? 'Mettre à jour' : 'Ajouter' }}
+</button>
+</form>
+
+
+
+
+
+

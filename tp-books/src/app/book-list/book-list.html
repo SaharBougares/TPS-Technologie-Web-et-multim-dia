@@ -1,0 +1,33 @@
+<h2>Liste des livres</h2>
+
+<table border="1">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Titre</th>
+      <th>Auteur</th>
+      <th>Catégorie</th>
+      <th>Disponible</th>
+    </tr>
+  </thead>
+
+
+    <tbody>
+    @for (book of books; track book.id) {
+      <tr>
+        <td>{{ book.id }}</td>
+        <td>{{ book.title }}</td>
+        <td>{{ book.author }}</td>
+        <td>{{ book.category }}</td>
+        <td>{{ book.isAvailable ? 'Oui' : 'Non' }}</td>
+        <td>
+          <!-- boutons pour la suite (UPDATE / DELETE) -->
+          <button type="button" (click)="onEdit(book)">Modifier</button>
+          <button type="button" (click)="onDelete(book.id)">Supprimer</button>
+        </td>
+      </tr>
+    }
+  </tbody>
+
+
+</table>

@@ -1,0 +1,56 @@
+.book-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.book-container h1 {
+  color: #333;
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 28px;
+}
+
+.book-container > p {
+  text-align: center;
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.book-container > div {
+  margin-bottom: 20px;
+  padding: 15px;
+  background-color: #f0f0f0;
+  border-radius: 4px;
+}
+
+.book-container label {
+  display: inline-block;
+  margin-right: 10px;
+  font-weight: bold;
+  color: #555;
+}
+
+.book-container input[type="text"],
+.book-container select {
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.book-container input[type="text"]:focus,
+.book-container select:focus {
+  outline: none;
+  border-color: #4CAF50;
+  box-shadow: 0 0 5px rgba(76, 175, 80, 0.3);
+}
+
+hr {
+  margin: 30px 0;
+  border: none;
+  border-top: 2px solid #ddd;
+}

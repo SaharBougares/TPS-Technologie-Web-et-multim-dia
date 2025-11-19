@@ -1,0 +1,43 @@
+<div class="book-container">
+  <h1>TP Books</h1>
+
+  <p>Nombre total de livres : {{ books.length }}</p>
+  <div>
+  <label for="search">Recherche :</label>
+  <input
+    id="search"
+    type="text"
+    [(ngModel)]="searchTerm"
+    placeholder="Titre ou auteur..."
+  />
+</div>
+
+<div>
+  <label for="sort">Trier par :</label>
+  <select id="sort" [(ngModel)]="sortKey">
+    <option value="">Aucun</option>
+    <option value="category">Catégorie</option>
+    <option value="availability">Disponibilité</option>
+  </select>
+</div>
+<hr>
+  
+   <!-- formulaire : on passe le livre à éditer -->
+  <app-book-form
+    [bookToEdit]="editingBook"
+    (bookSubmit)="onBookSubmit($event)">
+  </app-book-form>
+
+  <hr>
+
+    <!-- 8. On passe la liste au composant enfant /Relie l’événement enfant au parent -->
+  
+  <!-- liste : on écoute delete + edit -->
+ 
+
+
+  <app-book-list [books]="filteredBooks" (edit)="onEditBook($event)" (delete)="deleteBook($event)"></app-book-list>
+
+</div>
+
+

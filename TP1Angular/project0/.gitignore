@@ -79,12 +79,8 @@ Thumbs.db
 *.temp
 .cache
 
-# Documentation files not needed for teacher review
-GUIDE_GITHUB.md
-RESUME_TP1.md
-STRUCTURE_PROJET.md
-DELIVERABLES.md
+# Documentation files not needed
 README.md
 
 
-COMPLETION_SUMMARY.txt
+

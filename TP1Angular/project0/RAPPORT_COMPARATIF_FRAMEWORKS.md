@@ -2,19 +2,6 @@
 
 **Étudiante:**  Sahar Bougares IGL3 
 
----
-
-## Table des matières
-
-1. [Introduction](#introduction)
-2. [Angular](#angular)
-3. [React](#react)
-4. [Vue.js](#vuejs)
-5. [Tableau Comparatif](#tableau-comparatif)
-6. [Analyse Comparative](#analyse-comparative)
-7. [Conclusion](#conclusion)
-
----
 
 ## Introduction
 
@@ -130,25 +117,119 @@ Ce rapport présente une analyse comparative approfondie entre trois des framewo
 
 ---
 
-## Tableau Comparatif
+##  Comparaison:
 
-| Critère     | Angular            | React                 | Vue.js                |
-|-------------|--------------------|-----------------------|-----------------------|
-| **Type**    | Framework complet  | Bibliothèque          | Framework progressif  |
-| **Langage** | TypeScript (natif) | JavaScript/TypeScript | JavaScript/TypeScript |
-| **Courbe d'apprentissage**|Élevée| Modérée               | Douce                 |
-| **Performance** | Très bonne     | Excellente            | Très bonne            |
-| **Bundle size** | Grand (~500KB) | Moyen (~40KB)         | Petit (~35KB)         |
-| **Scalabilité** | Excellente     | Très bonne            | Bonne                 |
-| **Gestion d'état** | Intégrée    | Externe (Redux, etc.) | Pinia/Vuex            |
-| **Routage**     | Intégré        | Externe (React Router)| Vue Router            |
-| **Formulaires** | Réactifs intégrés| Gestion manuelle    | Directives intégrées  |
-| **Communauté**  | Grande         | Très grande           | Moyenne               |
-| **Écosystème**  | Complet        | Très riche            | Officiel              |
-| **Courbe de productivité**|Lente au démarrage| Rapide    | Très rapide           |
-| **Maintenance** | Facile (structure claire) | Dépend de l'architecture | Facile  |
-| **Adoption en entreprise** | Très élevée | Très élevée   | Croissante            |
+***Type****
 
+Angular : Framework complet (structure très encadrée)
+
+React : Bibliothèque pour l’interface (très flexible)
+
+Vue.js : Framework progressif (tu peux l’adopter petit à petit)
+
+*** Langage***
+
+Angular : TypeScript (natif, obligatoire)
+
+React : JavaScript ou TypeScript
+
+Vue.js : JavaScript ou TypeScript
+
+*** Courbe d’apprentissage***
+
+Angular : Élevée (beaucoup de concepts à assimiler)
+
+React : Modérée
+
+Vue.js : Douce (souvent considéré comme le plus simple pour débuter)
+
+*** Performance***
+
+Angular : Très bonne
+
+React : Excellente
+
+Vue.js : Très bonne
+
+*** Taille du bundle***
+
+Angular : Grand (~500 KB)
+
+React : Moyen (~40 KB)
+
+Vue.js : Petit (~35 KB)
+
+*** Scalabilité (gros projets)***
+
+Angular : Excellente (très structuré, idéal gros projets)
+
+React : Très bonne (dépend de l’architecture choisie)
+
+Vue.js : Bonne (suffisant pour beaucoup de projets)
+
+*** Gestion d’état***
+
+Angular : Gestion intégrée possible (services, NgRx, etc.)
+
+React : Externe en général (Redux, Zustand, MobX, etc.)
+
+Vue.js : Pinia (nouvelle génération) ou Vuex (plus ancien)
+
+*** Routage***
+
+Angular : Routage intégré (Angular Router)
+
+React : Routage externe (React Router, etc.)
+
+Vue.js : Vue Router (officiel)
+
+*** Formulaires***
+
+Angular : Formulaires réactifs intégrés (Template-driven & Reactive Forms)
+
+React : Gestion manuelle ou avec des libs (React Hook Form, Formik, etc.)
+
+Vue.js : Directives intégrées qui facilitent la gestion des formulaires (v-model, etc.)
+
+*** Communauté***
+
+Angular : Grande communauté
+
+React : Très grande communauté (la plus massive)
+
+Vue.js : Communauté de taille moyenne mais active
+
+*** Écosystème***
+
+Angular : Écosystème complet (officiel, cohérent)
+
+React : Écosystème très riche, beaucoup de choix (et de libs)
+
+Vue.js : Écosystème officiel bien structuré (Vue Router, Pinia, etc.)
+
+*** Courbe de productivité***
+
+Angular : Lente au démarrage (mais ensuite très efficace)
+
+React : Productivité rapide
+
+Vue.js : Très rapide à prendre en main et à produire
+
+*** Maintenance***
+
+Angular : Facile grâce à une structure claire et imposée
+
+React : Dépend fortement de l’architecture définie par l’équipe
+
+Vue.js : Facile à maintenir
+
+*** Adoption en entreprise***
+
+Angular : Très utilisée en entreprise (surtout gros projets)
+
+React : Très utilisée aussi (beaucoup de startups + grandes boîtes)
+
+Vue.js : Adoption croissante (de plus en plus populaire)
 ---
 
 ## Analyse Comparative

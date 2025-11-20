@@ -56,18 +56,8 @@ Thumbs.db
 .env.local
 .env.*.local
 
-# Files not needed for professor review (local documentation only)
-INSTRUCTIONS.txt
-GUIDE_EXECUTION.txt
-SYNTHESE_PROJET.txt
-VERIFICATION.txt
-POUR_LE_PROFESSEUR.txt
-DEMARRAGE_RAPIDE.txt
-INDEX.txt
-RESUME_FINAL.txt
-CONFIRMATION.txt
-FINAL_COMPLET.txt
-COMPLET_FINAL.txt
-PROJET_FINALISÉ.txt
-GITHUB_STRUCTURE.txt
-POUR_GITHUB.txt
+
+# Keep only necessary files
+!README.md
+
+

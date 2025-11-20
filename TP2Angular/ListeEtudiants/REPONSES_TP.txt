@@ -1,8 +1,8 @@
 ================================================================================
-                    TP2 ANGULAR - RÉPONSES COMPLÈTES (Pages 26-41)
+                              TP2 ANGULAR - RÉPONSES COMPLÈTES 
 ================================================================================
 
-PAGE 26 - ACTIVITÉ 1 : EXPLORATION DE LA STRUCTURE D'UN PROJET ANGULAR
+ - ACTIVITÉ 1 : EXPLORATION DE LA STRUCTURE D'UN PROJET ANGULAR
 ================================================================================
 
 Rôles des fichiers et dossiers principaux:
@@ -41,7 +41,7 @@ Rôles des fichiers et dossiers principaux:
 
 ================================================================================
 
-PAGE 27 - ACTIVITÉ 2 : GÉNÉRATION ET INTÉGRATION DE COMPOSANTS
+- ACTIVITÉ 2 : GÉNÉRATION ET INTÉGRATION DE COMPOSANTS
 ================================================================================
 
 Étape 1: Génération du composant utilisateur
@@ -63,7 +63,7 @@ e. app.module.ts - Fichier mis à jour avec la déclaration du composant
 
 ================================================================================
 
-PAGE 28 - ACTIVITÉ 3 : FORMULAIRE AVEC LIAISON BIDIRECTIONNELLE
+- ACTIVITÉ 3 : FORMULAIRE AVEC LIAISON BIDIRECTIONNELLE
 ================================================================================
 
 Étape 1: Importation du FormsModule
@@ -88,7 +88,7 @@ Dans profil.component.html:
 
 ================================================================================
 
-PAGE 29 - ACTIVITÉ 4 : COMPRENDRE LE RÔLE DU FORMSMODULE
+- ACTIVITÉ 4 : COMPRENDRE LE RÔLE DU FORMSMODULE
 ================================================================================
 
 Expérimentation sans FormsModule:
@@ -109,7 +109,7 @@ Restauration:
 
 ================================================================================
 
-PAGE 30 - ACTIVITÉ 5 : DÉCLARATION MANUELLE DE COMPOSANTS
+- ACTIVITÉ 5 : DÉCLARATION MANUELLE DE COMPOSANTS
 ================================================================================
 
 Étape 1: Création manuelle du composant adresse
@@ -156,7 +156,7 @@ Conclusion:
 
 ================================================================================
 
-PAGE 31 - ATELIER GUIDÉ : CRÉATION DU PROJET LISTEETUDIANTS
+- ATELIER GUIDÉ : CRÉATION DU PROJET LISTEETUDIANTS
 ================================================================================
 
 Étape 1: Création du projet
@@ -194,7 +194,7 @@ Défi:
 
 ================================================================================
 
-PAGE 32 - CRÉATION DU COMPOSANT ÉTUDIANT
+ - CRÉATION DU COMPOSANT ÉTUDIANT
 ================================================================================
 
 Étape 1: Génération du composant
@@ -261,7 +261,7 @@ Solution: Importer le composant dans app.component.ts
 
 ================================================================================
 
-PAGE 33 - CRÉATION ET MANIPULATION D'UNE CLASSE ÉTUDIANT
+- CRÉATION ET MANIPULATION D'UNE CLASSE ÉTUDIANT
 ================================================================================
 
 Étape 1: Création d'une interface
@@ -316,7 +316,7 @@ Défi:
 
 ================================================================================
 
-PAGE 34 - PIPES ET FORMATAGE DES DONNÉES
+- PIPES ET FORMATAGE DES DONNÉES
 ================================================================================
 
 Étape 1: Utilisation des pipes
@@ -353,7 +353,7 @@ Défi:
 
 ================================================================================
 
-PAGE 35 - BINDING (LIAISONS DE DONNÉES)
+- BINDING (LIAISONS DE DONNÉES)
 ================================================================================
 
 Étape 1: Liaison bidirectionnelle avec ngModel
@@ -391,7 +391,7 @@ Raison: FormsModule n'est pas importé.
 
 ================================================================================
 
-PAGE 36 - FORMSMODULE ET CONFIGURATION
+- FORMSMODULE ET CONFIGURATION
 ================================================================================
 
 Étape 1: Résolution du problème ngModel
@@ -401,7 +401,7 @@ Fichier: app.module.ts
 Importer FormsModule:
 ```typescript
 import { FormsModule } from '@angular/forms';
-```
+
 
 Ajouter au tableau imports:
 ```typescript
@@ -409,7 +409,7 @@ imports: [
   BrowserModule,
   FormsModule
 ],
-```
+
 
 Résultat:
 - L'erreur disparaît
@@ -424,41 +424,39 @@ Explication:
 
 ================================================================================
 
-PAGE 37 - RÉCAPITULATIF DES CONCEPTS
+ - RÉCAPITULATIF DES CONCEPTS
 ================================================================================
 
-Résumé des apprentissages:
-
-1. ✅ Utilisation de la CLI pour créer des composants
+1.  Utilisation de la CLI pour créer des composants
    - ng generate component nom-composant
 
-2. ✅ Affichage du composant dans le shell AppComponent
+2.  Affichage du composant dans le shell AppComponent
    - Ajouter la balise du composant dans le template parent
 
-3. ✅ Application des pipes pour formater les données
+3.  Application des pipes pour formater les données
    - {{ valeur | uppercase }}
    - {{ valeur | lowercase }}
    - {{ valeur | number:'1.2-2' }}
 
-4. ✅ Liaison bidirectionnelle avec ngModel
+4.  Liaison bidirectionnelle avec ngModel
    - [(ngModel)]="propriete"
    - Synchronisation automatique modèle-vue
 
-5. ✅ Découverte de l'AppModule
+5.  Découverte de l'AppModule
    - Gère les modules et dépendances
    - Déclare les composants
 
-6. ✅ Importation de FormsModule
+6.  Importation de FormsModule
    - Nécessaire pour ngModel
    - Ajouter au tableau imports
 
-7. ✅ Importance de la déclaration des composants
+7.  Importance de la déclaration des composants
    - Tous les composants doivent être déclarés
    - Sans déclaration, Angular ne les reconnaît pas
 
 ================================================================================
 
-PAGE 38 - VALIDATION DES ACQUIS - PARTIE 1
+- VALIDATION DES ACQUIS - PARTIE 1
 ================================================================================
 
 QUESTION 1 : Structure d'un Projet Angular
@@ -484,8 +482,6 @@ QUESTION 1 : Structure d'un Projet Angular
    Explication: C'est le fichier de configuration TypeScript
 
 ================================================================================
-
-PAGE 39 - VALIDATION DES ACQUIS - PARTIE 2
 ================================================================================
 
 QUESTION 2 : Création et Intégration de Composants
@@ -511,8 +507,6 @@ QUESTION 2 : Création et Intégration de Composants
    Explication: C'est la syntaxe correcte pour créer dans un sous-dossier
 
 ================================================================================
-
-PAGE 40 - VALIDATION DES ACQUIS - PARTIE 3
 ================================================================================
 
 QUESTION 3 : Liaison de Données Bidirectionnelle
@@ -539,8 +533,6 @@ QUESTION 3 : Liaison de Données Bidirectionnelle
    Explication: C'est le principal avantage de [(ngModel)]
 
 ================================================================================
-
-PAGE 41 - VALIDATION DES ACQUIS - PARTIE 4 ET 5
 ================================================================================
 
 QUESTION 4 : l'AppModule
@@ -640,7 +632,7 @@ Exemple: Un formulaire de connexion
 <input [(ngModel)]="password" placeholder="Mot de passe"/>
 <p>Email: {{ email }}</p>
 <p>Mot de passe: {{ password }}</p>
-```
+
 
 Quand l'utilisateur tape dans l'input:
 - Le modèle (email, password) se met à jour
@@ -665,7 +657,7 @@ Impact:
 
 ================================================================================
 
-PAGE 31 - CRÉATION ET MANIPULATION D'UNE CLASSE ÉTUDIANT (SUITE)
+- CRÉATION ET MANIPULATION D'UNE CLASSE ÉTUDIANT (SUITE)
 ================================================================================
 
 Étape 1: Création d'une interface
@@ -719,7 +711,7 @@ Défi:
 
 ================================================================================
 
-PAGE 32 - PIPES ET FORMATAGE DES DONNÉES
+- PIPES ET FORMATAGE DES DONNÉES
 ================================================================================
 
 Étape 1: Utilisation des pipes
@@ -757,7 +749,7 @@ Défi:
 
 ================================================================================
 
-PAGE 33 - BINDING (LIAISONS DE DONNÉES) - PARTIE 1
+- BINDING (LIAISONS DE DONNÉES) - PARTIE 1
 ================================================================================
 
 Étape 1: Liaison bidirectionnelle avec ngModel
@@ -795,7 +787,7 @@ Raison: FormsModule n'est pas importé.
 
 ================================================================================
 
-PAGE 34 - BINDING (LIAISONS DE DONNÉES) - PARTIE 2
+- BINDING (LIAISONS DE DONNÉES) - PARTIE 2
 ================================================================================
 
 Étape 1: Résolution du problème ngModel
@@ -844,32 +836,32 @@ lors de la création du projet. C'est là que vous optez dans la FormsModule.
 
 ================================================================================
 
-PAGE 35 - RÉCAPITULATIF DES CONCEPTS
+- RÉCAPITULATIF DES CONCEPTS
 ================================================================================
 
 Résumé des apprentissages:
 
-1. ✅ Utilisation de la CLI pour créer un deuxième EtudiantComponent
+1.  Utilisation de la CLI pour créer un deuxième EtudiantComponent
    - ng generate component etudiant
 
-2. ✅ Affichage du EtudiantComponent en l'ajoutant au shell AppComponent
+2.  Affichage du EtudiantComponent en l'ajoutant au shell AppComponent
    - Ajouter la balise du composant dans le template parent
 
-3. ✅ Application du UppercasePipe pour mettre en forme le nom
+3.  Application du UppercasePipe pour mettre en forme le nom
    - {{ etudiant.name | uppercase }}
 
-4. ✅ Utilisation de la liaison de données bidirectionnelle avec ngModel
+4.  Utilisation de la liaison de données bidirectionnelle avec ngModel
    - [(ngModel)]="etudiant.name"
 
-5. ✅ Découverte de l'AppModule
+5.  Découverte de l'AppModule
    - Gère les modules et dépendances
    - Déclare les composants
 
-6. ✅ Importation du FormsModule dans l'AppModule
+6.  Importation du FormsModule dans l'AppModule
    - Nécessaire pour ngModel
    - Ajouter au tableau imports
 
-7. ✅ Apprentissage de l'importance de déclarer les composants dans l'AppModule
+7.  Apprentissage de l'importance de déclarer les composants dans l'AppModule
    - Tous les composants doivent être déclarés
    - Sans déclaration, Angular ne les reconnaît pas
 
@@ -967,30 +959,9 @@ export class Etudiant {
 
 ================================================================================
 
-PAGE 36 - VALIDATION DES ACQUIS - INTRODUCTION
 ================================================================================
 
-Cette section contient les questions de validation pour évaluer votre compréhension
-des concepts couverts dans ce TP.
-
-Les questions sont organisées en 5 catégories:
-1. Structure d'un Projet Angular
-2. Création et Intégration de Composants
-3. Liaison de Données Bidirectionnelle avec ngModel
-4. l'AppModule
-5. Déclaration des Composants dans l'AppModule
-
-Chaque catégorie contient 5 questions à choix multiples.
-
-Après les questions à choix multiples, il y a 5 questions ouvertes pour évaluer
-votre compréhension approfondie des concepts.
-
-Les réponses à toutes ces questions se trouvent dans les pages suivantes
-(pages 38-41).
-
-================================================================================
-
-PAGE 37 - VALIDATION DES ACQUIS - QUESTIONS COMPLÈTES
+- VALIDATION DES ACQUIS - QUESTIONS COMPLÈTES
 ================================================================================
 
 QUESTION 1 : Structure d'un Projet Angular
@@ -1253,6 +1224,3 @@ QUESTIONS OUVERTES POUR ÉVALUER LES ACQUIS
    l'AppModule ou le module approprié. Comment cela affecte-t-il le comportement 
    de l'application?
 
-================================================================================
-                            FIN DU DOCUMENT
-================================================================================

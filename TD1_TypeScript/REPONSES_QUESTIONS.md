@@ -172,11 +172,11 @@ La simulation complète est disponible dans le fichier main.ts et démontre :
 
 ### Interface
 **Définition :** Contrat structurel pour les objets
-- ✅ Peut être **étendue** avec `extends`
-- ✅ Peut être **implémentée** par des classes
-- ✅ Supporte la **fusion de déclarations** (declaration merging)
-- ✅ Optimisée pour les **objets**
-- ❌ Ne peut pas représenter les unions ou tuples
+-  Peut être **étendue** avec `extends`
+-  Peut être **implémentée** par des classes
+-  Supporte la **fusion de déclarations** (declaration merging)
+-  Optimisée pour les **objets**
+-  Ne peut pas représenter les unions ou tuples
 
 **Exemple :**
 ```typescript
@@ -194,13 +194,13 @@ interface Admin extends User {
 
 ### Type
 **Définition :** Alias de type flexible
-- ✅ Supporte les **unions** (`"a" | "b"`)
-- ✅ Supporte les **intersections** (`A & B`)
-- ✅ Supporte les **tuples** (`[string, number]`)
-- ✅ Supporte les **types conditionnels**
-- ✅ Supporte les **types génériques avancés**
-- ❌ Ne peut pas être implémenté par une classe
-- ❌ Pas de fusion de déclarations
+-  Supporte les **unions** (`"a" | "b"`)
+-  Supporte les **intersections** (`A & B`)
+-  Supporte les **tuples** (`[string, number]`)
+-  Supporte les **types conditionnels**
+-  Supporte les **types génériques avancés**
+-  Ne peut pas être implémenté par une classe
+-  Pas de fusion de déclarations
 
 **Exemple :**
 ```typescript
@@ -230,8 +230,8 @@ type Callback = (data: string) => void;
 
 #### 1. **Concept générique sans sens concret**
 Un "cours" générique n'a pas de représentation concrète dans le système :
-- ❌ On ne peut pas créer un cours sans type spécifique
-- ✅ Chaque cours doit être soit vidéo, soit en direct, soit autre type
+-  On ne peut pas créer un cours sans type spécifique
+-  Chaque cours doit être soit vidéo, soit en direct, soit autre type
 - **Exemple :** Créer `new Course("TypeScript")` n'a pas de sens
 
 #### 2. **Force l'implémentation de méthodes critiques**
@@ -242,7 +242,7 @@ abstract class Course {
 }
 
 class VideoCourse extends Course {
-    getDescription(): string {  // ✅ Doit être implémenté
+    getDescription(): string {  //  Doit être implémenté
         return `Cours vidéo: "${this.title}" - Durée: ${this.duration} minutes`;
     }
 }
@@ -266,10 +266,10 @@ courses.forEach(course => {
 
 #### 5. **Prévention d'instanciation directe**
 ```typescript
-// ❌ Erreur à la compilation
+//  Erreur à la compilation
 const course = new Course("TypeScript");
 
-// ✅ Correct
+//  Correct
 const videoCourse = new VideoCourse("TypeScript", 120);
 ```
 
@@ -299,12 +299,12 @@ import { User, Role, ApiResponse, fetchUser } from './models';
 ```
 
 **Caractéristiques :**
-- ✅ **Plusieurs exports** par fichier
-- ✅ **Noms explicites** et clairs
-- ✅ **Meilleur refactoring** (IDE peut renommer automatiquement)
-- ✅ **Tree-shaking optimal** (bundler supprime les imports inutilisés)
-- ✅ **Évite les conflits** de noms
-- ✅ **Autocomplétion** meilleure dans l'IDE
+-  **Plusieurs exports** par fichier
+-  **Noms explicites** et clairs
+-  **Meilleur refactoring** (IDE peut renommer automatiquement)
+-  **Tree-shaking optimal** (bundler supprime les imports inutilisés)
+-  **Évite les conflits** de noms
+-  **Autocomplétion** meilleure dans l'IDE
 
 **Exemple dans le projet :**
 ```typescript
@@ -329,12 +329,12 @@ import Course from './courses';
 ```
 
 **Caractéristiques :**
-- ✅ **Syntaxe plus courte** à l'import
-- ✅ **Flexibilité du nom** (peut renommer à l'import)
-- ❌ **Un seul par fichier**
-- ❌ **Moins de clarté** sur ce qui est exporté
-- ❌ **Refactoring plus difficile**
-- ❌ **Tree-shaking moins efficace**
+-  **Syntaxe plus courte** à l'import
+-  **Flexibilité du nom** (peut renommer à l'import)
+-  **Un seul par fichier**
+-  **Moins de clarté** sur ce qui est exporté
+-  **Refactoring plus difficile**
+-  **Tree-shaking moins efficace**
 
 **Exemple dans le projet :**
 ```typescript
@@ -347,14 +347,24 @@ import Course from './courses';
 
 ### Comparaison :
 
-| Critère | Export Nommé | Export par Défaut |
-|---------|-------------|-------------------|
-| Nombre par fichier | ✅ Plusieurs | ❌ Un seul |
-| Clarté | ✅ Excellente | ❌ Faible |
-| Refactoring | ✅ Facile | ❌ Difficile |
-| Tree-shaking | ✅ Optimal | ❌ Moins bon |
-| Flexibilité | ❌ Rigide | ✅ Flexible |
-| Syntaxe import | ❌ Plus long | ✅ Plus court |
+Nombre par fichier
+Export nommé :  permet d’avoir plusieurs exports par fichier
+Export par défaut :  il ne peut y avoir qu’un seul export par fichier
+Clarté
+Export nommé :  très clair, on voit exactement ce qui est exporté
+Export par défaut :  moins clair, surtout dans les gros projets
+Refactoring
+Export nommé :  facile à refactorer (renommer, déplacer, etc.)
+Export par défaut :  plus difficile à refactorer proprement
+Tree-shaking
+Export nommé :  meilleur pour le tree-shaking (on n’importe que ce qu’on utilise)
+Export par défaut :  moins bon pour le tree-shaking
+Flexibilité
+Export nommé :  plus rigide, les noms doivent correspondre
+Export par défaut :  plus flexible, on peut le renommer à l’import
+Syntaxe d’import
+Export nommé :  syntaxe d’import un peu plus longue
+Export par défaut :  syntaxe d’import plus courte et rapide à écrire
 
 ### Recommandation :
 **Préférez les exports nommés** pour :
@@ -581,72 +591,12 @@ export class Validator {
 
 ---
 
-### Résumé des Améliorations :
 
-| Amélioration | Complexité | Impact | Priorité |
-|-------------|-----------|--------|----------|
-| CourseRepository | ⭐ | Haute | ✅ Implémenté |
-| Enrollment | ⭐⭐ | Haute | 🔴 Haute |
-| Review | ⭐⭐ | Moyenne | 🟡 Moyenne |
-| Catégories | ⭐ | Moyenne | 🟡 Moyenne |
-| RBAC | ⭐⭐⭐ | Très haute | 🔴 Haute |
-| Persistance | ⭐⭐ | Très haute | 🔴 Haute |
-| Notifications | ⭐⭐ | Moyenne | 🟡 Moyenne |
-| Validation | ⭐ | Moyenne | 🟡 Moyenne |
 
----
 
-##  Concepts TypeScript Démontrés
 
-### Concepts Fondamentaux
-- ✅ **Types de base** : string, number, boolean, Date
-- ✅ **Types union** : `Role = "student" | "teacher" | "admin"`
-- ✅ **Types optionnels** : `email?: string`
-- ✅ **Types génériques** : `Repository<T>`, `ApiResponse<T>`
 
-### Programmation Orientée Objet
-- ✅ **Classes abstraites** : `abstract class Course`
-- ✅ **Héritage** : `class VideoCourse extends Course`
-- ✅ **Interfaces** : `interface User`, `interface Repository<T>`
-- ✅ **Polymorphisme** : Implémentation de `getDescription()` différente par type
-- ✅ **Modificateurs d'accès** : `private`, `protected`, `public`
-- ✅ **Encapsulation** : Propriétés privées avec getters
 
-### Patterns et Architecture
-- ✅ **Pattern Repository** : Gestion générique des collections
-- ✅ **Séparation des responsabilités** : Modules distincts (models, courses, repositories, main)
-- ✅ **Réutilisabilité** : Interface générique implémentée par plusieurs classes
-- ✅ **Type Safety** : Vérification des types à la compilation
-
-### Modules et Imports/Exports
-- ✅ **Exports nommés** : `export { User, Role, ApiResponse }`
-- ✅ **Exports par défaut** : `export default Course`
-- ✅ **Imports sélectifs** : `import { User, Role } from './models'`
-- ✅ **Organisation modulaire** : Fichiers séparés par responsabilité
-
----
-
-##  Résumé du Projet
-
-### Structure du Projet
-```
-TD1_TypeScript/
-├── models.ts          # Types, interfaces, fonction fetchUser
-├── courses.ts         # Classes abstraites et concrètes
-├── repositories.ts    # Pattern Repository générique
-├── main.ts           # Simulation du système
-├── package.json      # Dépendances et scripts
-├── tsconfig.json     # Configuration TypeScript
-└── dist/             # Code compilé
-```
-
-### Fonctionnalités Implémentées
-1. ✅ Gestion des utilisateurs (student, teacher, admin)
-2. ✅ Création de cours (vidéo et en direct)
-3. ✅ Repository générique pour toute entité
-4. ✅ Recherche et filtrage
-5. ✅ Simulation d'API avec ApiResponse
-6. ✅ Gestion d'erreurs
 
 ### Exécution du Projet
 ```bash
@@ -677,32 +627,9 @@ Le programme affiche :
 - ✅ Fonctionnalités avancées
 - ✅ Statistiques finales
 
----
-
-##  Points Forts du Projet
-
-1. **Code Professionnel**
-   - Commentaires détaillés
-   - Noms explicites
-   - Structure claire
-
-2. **Respect de l'Énoncé**
-   - Tous les points demandés implémentés
-   - Simulation complète du système
-   - Questions répondues en détail
-
-3. **Bonnes Pratiques TypeScript**
-   - Utilisation appropriée des types et interfaces
-   - Génériques pour la réutilisabilité
-   - Encapsulation des données
-
-4. **Extensibilité**
-   - Pattern Repository réutilisable
-   - Facile d'ajouter de nouveaux types de cours
-   - Architecture modulaire
 
 ---
 
-**Projet réalisé dans le cadre du TD1 - Technologie Web et Multimédia**
+**réalisé dans le cadre du TD1 - Technologie Web et Multimédia**
 **Université : FST - Département Informatique**
 **Étudiante: Sahar Bougares**

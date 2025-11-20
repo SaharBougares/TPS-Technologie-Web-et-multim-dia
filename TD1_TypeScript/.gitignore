@@ -28,15 +28,7 @@ coverage/
 *.tmp
 *.temp
 
-# Fichiers de documentation inutiles (ne pas partager avec le professeur)
-GUIDE_UTILISATION.md
-INDEX.md
+# Fichiers de documentation inutiles 
 README.md
-RESUME_EXECUTION.md
-STRUCTURE_PROJET.md
-SYNTHESE_RENDU.md
-GUIDE_CORRECTION.md
-APERCU_RAPIDE.md
-VERIFICATION_FINALE.md
-LISEZMOI.md
-POUR_LE_PROFESSEUR.md
+
+

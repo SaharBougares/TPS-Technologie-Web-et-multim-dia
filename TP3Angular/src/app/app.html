@@ -1,0 +1,46 @@
+<div class="container">
+  <header class="header">
+    <h1>{{ title }}</h1>
+  </header>
+
+  <!-- Ateliers Pratiques Section -->
+  <section class="section">
+    <h2 class="section-title">Les Ateliers Pratiques</h2>
+    
+    <!-- Activité 1: Interpolation -->
+    <div class="activity">
+      <h3>Activité 1 : Interpolation de chaînes de caractères</h3>
+      <app-bienvenue></app-bienvenue>
+    </div>
+
+    <!-- Activité 2-8: Produit -->
+    <div class="activity">
+      <h3>Activités 2-5 & 8 : Produit (Property Binding, Event Binding, Styles, Pipes)</h3>
+      <app-produit></app-produit>
+    </div>
+
+    <!-- Activité 4: Utilisateur -->
+    <div class="activity">
+      <h3>Activité 4 : Two-Way Data Binding avec ngModel</h3>
+      <app-utilisateur></app-utilisateur>
+    </div>
+
+    <!-- Activité 6: Panier -->
+    <div class="activity">
+      <h3>Activité 6 : Communication entre Composants (&#64;Input et &#64;Output)</h3>
+      <app-panier></app-panier>
+    </div>
+  </section>
+
+  <!-- Atelier Guidé Section -->
+  <section class="section">
+    <h2 class="section-title">Atelier Guidé</h2>
+    <app-atelier-guide></app-atelier-guide>
+  </section>
+
+  <!-- Projet Quiz Section -->
+  <section class="section">
+    <h2 class="section-title">Projet Quiz</h2>
+    <app-projet-quiz></app-projet-quiz>
+  </section>
+</div>

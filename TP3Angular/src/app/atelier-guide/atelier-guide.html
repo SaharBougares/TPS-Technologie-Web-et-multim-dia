@@ -1,0 +1,31 @@
+<div class="atelier-guide-container">
+  <h1>Atelier Guidé - Gestion de Produits</h1>
+
+  <div class="content">
+    <!-- Activité 6: Utiliser @Output pour recevoir l'événement -->
+    <!-- Activité 7: Passer nomProduit avec @Input -->
+    <div class="produits-section">
+      <h2>Produits Disponibles</h2>
+      
+      <app-produit-guide
+        [nomProduit]="'Ordinateur Portable'"
+        (ajouterAuPanier)="gererAjoutAuPanier($event)">
+      </app-produit-guide>
+
+      <app-produit-guide
+        [nomProduit]="'Souris'"
+        (ajouterAuPanier)="gererAjoutAuPanier($event)">
+      </app-produit-guide>
+
+      <app-produit-guide
+        [nomProduit]="'Clavier'"
+        (ajouterAuPanier)="gererAjoutAuPanier($event)">
+      </app-produit-guide>
+    </div>
+
+    <!-- Activité 6: Passer les données avec @Input -->
+    <div class="panier-section">
+      <app-panier-guide [items]="panierItems"></app-panier-guide>
+    </div>
+  </div>
+</div>

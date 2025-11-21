@@ -1,0 +1,242 @@
+================================================================================
+VALIDATION DES ACQUIS - QCM ANGULAR
+================================================================================
+
+QCM 1 : Interpolation de Données
+================================================================================
+Question: Quelle syntaxe est utilisée pour afficher une propriété du composant 
+dans le template en utilisant l'interpolation ?
+
+a) [property]="value"
+b) {{ value }}   CORRECT
+c) (event)="handler()"
+d) *ngIf="condition"
+
+Réponse: B
+Explication: L'interpolation utilise la syntaxe {{ }} pour afficher les données 
+du composant directement dans le template. C'est la manière la plus simple 
+d'afficher une valeur.
+
+Exemple dans le projet:
+- app.html: <h1>{{ title }}</h1>
+- question.html: <h2 class="question-text">{{ question.question }}</h2>
+
+
+QCM 2 : Property Binding
+================================================================================
+Question: Lequel des éléments suivants est un exemple correct de property 
+binding en Angular ?
+
+a) <img src="{{ imageUrl }}" alt="Image">
+b) <img [src]="imageUrl" alt="Image">   CORRECT
+c) <img (src)="imageUrl" alt="Image">
+d) <img *src="imageUrl" alt="Image">
+
+Réponse: B
+Explication: Le property binding utilise la syntaxe [property]="value" pour 
+lier une propriété du composant à un attribut HTML. Cette approche est plus 
+performante que l'interpolation pour les attributs.
+
+Exemple dans le projet:
+- question.html: <div [ngClass]="{'en-stock': enStock, 'hors-stock': !enStock}">
+- game.html: [disabled]="isCurrentQuestionAnswered"
+
+
+QCM 3 : Event Binding
+================================================================================
+Question: Quelle est la syntaxe correcte pour lier un événement de clic sur 
+un bouton à une méthode du composant ?
+
+a) <button [click]="maMethode()">Cliquez-moi</button>
+b) <button (click)="maMethode()">Cliquez-moi</button>   CORRECT
+c) <button *click="maMethode()">Cliquez-moi</button>
+d) <button {{ click="maMethode()" }}>Cliquez-moi</button>
+
+Réponse: B
+Explication: L'event binding utilise la syntaxe (event)="handler()" pour 
+écouter les événements utilisateur et appeler une méthode du composant.
+
+Exemple dans le projet:
+- produit-guide.html: <button (click)="toggleStock()" class="btn-toggle">
+- game.html: <button (click)="nextQuestion()" [disabled]="!isCurrentQuestionAnswered">
+- home.html: <button class="btn-start" (click)="onStartClick()">
+
+
+QCM 4 : Two-Way Data Binding avec ngModel
+================================================================================
+Question: Pour utiliser la liaison de données bidirectionnelle avec ngModel, 
+quelle syntaxe devez-vous employer dans le template ?
+
+a) <input [ngModel]="nom">
+b) <input [(ngModel)]="nom">   CORRECT
+c) <input {{ ngModel="nom" }}>
+d) <input (ngModel)="nom">
+
+Réponse: B
+Explication: Le two-way data binding utilise la syntaxe [(ngModel)]="property" 
+pour créer une liaison bidirectionnelle. Les données du composant se mettent 
+à jour automatiquement quand l'utilisateur modifie l'input, et vice-versa.
+
+Exemple dans le projet:
+- question.html: <input type="text" [(ngModel)]="textAnswer" 
+                         placeholder="Entrez votre réponse...">
+
+Cas d'usage: Capture des réponses textuelles dans le quiz
+
+
+QCM 5 : Importation de FormsModule
+================================================================================
+Question: Pour que ngModel fonctionne correctement, quel module devez-vous 
+importer dans votre module principal (app.module.ts) ?
+
+a) BrowserModule
+b) HttpClientModule
+c) FormsModule   CORRECT
+d) ReactiveFormsModule
+
+Réponse: C
+Explication: FormsModule doit être importé pour utiliser ngModel et les 
+directives de formulaire. Dans notre application standalone, FormsModule 
+est importé dans main.ts via importProvidersFrom().
+
+Implémentation dans le projet:
+- main.ts: 
+  providers: [
+    importProvidersFrom(FormsModule)
+  ]
+
+- question.ts (composant standalone):
+  imports: [CommonModule, FormsModule]
+
+
+QCM 6 : Utilisation des Pipes
+================================================================================
+Question: Quel est le rôle des pipes dans Angular ?
+
+a) Ils permettent de lier les propriétés du composant aux attributs des 
+   éléments HTML.
+b) Ils sont utilisés pour transformer et formater les données directement 
+   dans le template.   CORRECT
+c) Ils gèrent les interactions utilisateur en appelant des méthodes du 
+   composant.
+d) Ils permettent de répéter une partie du template pour chaque élément 
+   d'une collection.
+
+Réponse: B
+Explication: Les pipes transforment les données pour l'affichage sans modifier 
+les données du composant. Ils utilisent la syntaxe {{ value | pipeName }}.
+
+Exemples dans le projet:
+- panier.html: {{ article.prix | currency: 'TND' }}
+- panier.html: {{ totalPanier | currency: 'TND' }}
+
+Pipes disponibles:
+- currency: Formate les nombres en devise
+- date: Formate les dates
+- uppercase/lowercase: Change la casse
+- json: Affiche les objets en JSON
+
+
+================================================================================
+QUESTION OUVERTE : Data Binding et Interpolation dans Angular
+================================================================================
+
+Question: Veuillez répondre de manière détaillée à la question suivante pour 
+démontrer votre compréhension approfondie du data binding et de l'interpolation 
+dans Angular.
+
+RÉPONSE DÉTAILLÉE:
+================================================================================
+
+1. DÉFINITIONS FONDAMENTALES
+
+L'interpolation et le data binding sont deux concepts clés d'Angular pour 
+synchroniser les données entre le composant (TypeScript) et le template (HTML).
+
+a) Interpolation {{ }}
+   - Syntaxe: {{ expression }}
+   - Utilisée pour afficher des valeurs simples dans le template
+   - Unidirectionnelle (composant → template)
+   - Exemple: <h1>{{ title }}</h1>
+
+b) Property Binding [ ]
+   - Syntaxe: [property]="expression"
+   - Lie une propriété HTML à une expression du composant
+   - Unidirectionnelle (composant → template)
+   - Exemple: <img [src]="imageUrl">
+
+c) Event Binding ( )
+   - Syntaxe: (event)="handler()"
+   - Écoute les événements utilisateur
+   - Unidirectionnelle (template → composant)
+   - Exemple: <button (click)="onSubmit()">
+
+d) Two-Way Data Binding [( )]
+   - Syntaxe: [(ngModel)]="property"
+   - Bidirectionnelle (composant ↔ template)
+   - Synchronise automatiquement les données
+   - Exemple: <input [(ngModel)]="userName">
+
+
+2. IMPLÉMENTATION DANS LE PROJET
+
+a) Interpolation (Ateliers Pratiques):
+   - bienvenue.html: {{ message }}
+   - produit.html: {{ nomProduit }}, {{ prix }}
+   
+b) Property Binding (Ateliers Pratiques):
+   - produit.html: [imageUrl]="'/assets/images/casque.jpeg'"
+   - produit.html: [disabled]="!enStock"
+   
+c) Event Binding (Ateliers Pratiques):
+   - produit.html: (click)="afficherAlerte()"
+   - panier.html: (ajoutPanier)="onAjoutPanier($event)"
+   
+d) Two-Way Data Binding (Ateliers Pratiques):
+   - utilisateur.html: [(ngModel)]="nom"
+   - utilisateur.html: [(ngModel)]="email"
+
+e) Projet Quiz:
+   - question.html: {{ question.question }} (interpolation)
+   - question.html: [disabled]="isAnswered" (property binding)
+   - question.html: (click)="selectOption(option)" (event binding)
+   - question.html: [(ngModel)]="textAnswer" (two-way binding)
+
+
+
+
+4. AVANTAGES ET CAS D'USAGE
+
+Interpolation {{ }}:
+- Avantage: Simple et lisible
+- Cas d'usage: Affichage de texte, nombres, dates
+- Exemple: <p>Bienvenue {{ userName }}!</p>
+
+Property Binding [ ]:
+- Avantage: Plus performant pour les attributs
+- Cas d'usage: Attributs HTML, propriétés CSS
+- Exemple: <img [src]="imageUrl" [alt]="imageName">
+
+Event Binding ( ):
+- Avantage: Gère les interactions utilisateur
+- Cas d'usage: Clics, soumissions, changements
+- Exemple: <button (click)="handleClick()">
+
+Two-Way Binding [( )]:
+- Avantage: Synchronisation automatique
+- Cas d'usage: Formulaires, inputs
+- Exemple: <input [(ngModel)]="formData.email">
+
+
+
+================================================================================
+RÉSUMÉ DES RÉPONSES AUX QCM
+================================================================================
+
+QCM 1: B ({{ value }})
+QCM 2: B ([src]="imageUrl")
+QCM 3: B ((click)="maMethode()")
+QCM 4: B ([(ngModel)]="nom")
+QCM 5: C (FormsModule)
+QCM 6: B (Transformation et formatage des données)
+================================================================================

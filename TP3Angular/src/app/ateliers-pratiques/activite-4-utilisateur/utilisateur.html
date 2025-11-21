@@ -1,0 +1,23 @@
+<!-- Activité 4: Two-Way Data Binding avec ngModel -->
+<div class="utilisateur-container">
+  <div class="form-group">
+    <label for="nom">Entrez votre nom:</label>
+    <!-- Utiliser ngModel pour lier un champ input à la propriété nom -->
+    <input 
+      id="nom"
+      type="text" 
+      [(ngModel)]="nom" 
+      placeholder="Votre nom"
+      class="input-field"
+    >
+  </div>
+
+  <!-- Afficher la valeur en temps réel -->
+  <div class="output" *ngIf="nom">
+    <p class="greeting">Bonjour, <strong>{{ nom }}</strong>!</p>
+  </div>
+
+  <div class="output" *ngIf="!nom">
+    <p class="placeholder-text">Veuillez entrer votre nom...</p>
+  </div>
+</div>

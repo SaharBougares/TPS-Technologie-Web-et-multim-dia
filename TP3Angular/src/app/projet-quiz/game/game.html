@@ -1,0 +1,69 @@
+<div class="game-container">
+  <!-- Affichage du jeu en cours -->
+  <div *ngIf="!gameFinished" class="game-content">
+    <!-- Barre de score en temps réel (Défi 2) -->
+    <div class="score-bar">
+      <div class="score-item">
+        <span class="label">Score:</span>
+        <span class="value">{{ score }}</span>
+      </div>
+      <div class="score-item">
+        <span class="label">✓ Bonnes:</span>
+        <span class="value correct">{{ correctAnswers }}</span>
+      </div>
+      <div class="score-item">
+        <span class="label">✗ Mauvaises:</span>
+        <span class="value incorrect">{{ incorrectAnswers }}</span>
+      </div>
+      <!-- Défi 3: Chronomètre -->
+      <div class="score-item">
+        <span class="label">Temps:</span>
+        <span class="value timer" [ngClass]="{'time-warning': timeRemaining <= 5, 'time-expired': timeExpired}">
+          {{ timeRemaining }}s
+        </span>
+      </div>
+    </div>
+
+    <!-- Affichage de la question -->
+    <app-question
+      [question]="currentQuestion"
+      [questionNumber]="currentQuestionIndex + 1"
+      [totalQuestions]="questions.length"
+      [isAnswered]="isCurrentQuestionAnswered"
+      (answerSelected)="onAnswerSelected($event)">
+    </app-question>
+
+    <!-- Boutons de navigation -->
+    <div class="navigation-buttons">
+      <button
+        class="btn-prev"
+        (click)="previousQuestion()"
+        [disabled]="currentQuestionIndex === 0">
+        ← Précédente
+      </button>
+
+      <button
+        class="btn-next"
+        (click)="nextQuestion()"
+        [disabled]="!isCurrentQuestionAnswered">
+        Suivante →
+      </button>
+    </div>
+  </div>
+
+  <!-- Affichage des résultats finaux -->
+  <div *ngIf="gameFinished" class="results-section">
+    <app-score
+      [score]="score"
+      [totalQuestions]="questions.length"
+      [correctAnswers]="correctAnswers"
+      [incorrectAnswers]="incorrectAnswers">
+    </app-score>
+
+    <div class="restart-button-container">
+      <button class="btn-restart" (click)="restartGame()">
+        Recommencer le Quiz
+      </button>
+    </div>
+  </div>
+</div>

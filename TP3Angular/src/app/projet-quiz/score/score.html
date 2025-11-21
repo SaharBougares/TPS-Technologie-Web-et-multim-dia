@@ -1,0 +1,33 @@
+<div class="score-container">
+  <div class="score-card">
+    <h2>Résultats</h2>
+    
+    <div class="score-display">
+      <div class="score-message">{{ getScoreMessage() }}</div>
+      <div class="score-percentage">{{ getPercentage() }}%</div>
+    </div>
+
+    <div class="score-details">
+      <div class="detail-item">
+        <span class="label">Score Total:</span>
+        <span class="value">{{ score }} points</span>
+      </div>
+      <div class="detail-item">
+        <span class="label">Bonnes Réponses:</span>
+        <span class="value correct">{{ correctAnswers }}/{{ totalQuestions }}</span>
+      </div>
+      <div class="detail-item">
+        <span class="label">Mauvaises Réponses:</span>
+        <span class="value incorrect">{{ incorrectAnswers }}/{{ totalQuestions }}</span>
+      </div>
+    </div>
+
+    <div class="progress-ring">
+      <svg width="120" height="120">
+        <circle cx="60" cy="60" r="50" class="progress-ring-circle" 
+                [style.stroke-dashoffset]="314 - (314 * getPercentage() / 100)"></circle>
+      </svg>
+      <div class="progress-text">{{ getPercentage() }}%</div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,65 @@
+<!-- Activité 6: Communication entre Composants avec @Input et @Output -->
+<div class="panier-container">
+  <div class="panier-section">
+    <h3>Produits Disponibles</h3>
+    <!-- Passer une valeur à nomProduit et imageUrl depuis le composant parent -->
+    <app-produit 
+      [nomProduit]="'Laptop Gaming'" 
+      [imageUrl]="'/assets/images/laptop.jpeg'"
+      (ajoutPanier)="onAjoutPanier($event)">
+    </app-produit>
+    <app-produit 
+      [nomProduit]="'Souris Wireless'" 
+      [imageUrl]="'/assets/images/souris.jpeg'"
+      (ajoutPanier)="onAjoutPanier($event)">
+    </app-produit>
+    <app-produit 
+      [nomProduit]="'Clavier Mécanique'" 
+      [imageUrl]="'/assets/images/clavier.jpeg'"
+      (ajoutPanier)="onAjoutPanier($event)">
+    </app-produit>
+  </div>
+
+  <div class="panier-affichage">
+    <h3>Votre Panier</h3>
+    
+    <div *ngIf="articles.length === 0" class="panier-vide">
+      <p>Votre panier est vide</p>
+    </div>
+
+    <div *ngIf="articles.length > 0" class="panier-contenu">
+      <table class="panier-table">
+        <thead>
+          <tr>
+            <th>Produit</th>
+            <th>Prix</th>
+            <th>Quantité</th>
+            <th>Total</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let article of articles; let i = index" class="panier-item">
+            <td>{{ article.nom }}</td>
+            <td>{{ article.prix | currency: 'TND' }}</td>
+            <td>{{ article.quantite }}</td>
+            <td>{{ (article.prix * article.quantite) | currency: ' TND ' }}</td>
+            <td>
+              <button (click)="supprimerArticle(i)" class="btn-supprimer">
+                Supprimer
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="panier-total">
+        <h4>Total: {{ totalPanier | currency: 'TND' }}</h4>
+      </div>
+
+      <button (click)="viderPanier()" class="btn-vider">
+        Vider le panier
+      </button>
+    </div>
+  </div>
+</div>

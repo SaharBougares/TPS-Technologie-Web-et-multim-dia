@@ -1,0 +1,58 @@
+.utilisateur-container {
+  padding: 20px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 8px;
+  max-width: 400px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+
+  label {
+    display: block;
+    color: white;
+    font-weight: bold;
+    margin-bottom: 10px;
+    font-size: 16px;
+  }
+
+  .input-field {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+    transition: border-color 0.3s;
+
+    &:focus {
+      outline: none;
+      border-color: #667eea;
+      box-shadow: 0 0 8px rgba(102, 126, 234, 0.4);
+    }
+  }
+}
+
+.output {
+  padding: 15px;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 4px;
+  text-align: center;
+
+  .greeting {
+    color: #2c3e50;
+    font-size: 18px;
+    margin: 0;
+
+    strong {
+      color: #667eea;
+      font-weight: bold;
+    }
+  }
+
+  .placeholder-text {
+    color: #95a5a6;
+    font-size: 14px;
+    margin: 0;
+    font-style: italic;
+  }
+}

@@ -1,0 +1,144 @@
+.panier-container {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 28px;
+  padding: 0;
+
+  @media (max-width: 1024px) {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
+
+.panier-section {
+  h3 {
+    color: #2c3e50;
+    font-size: 20px;
+    font-weight: 600;
+    margin: 0 0 20px 0;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 12px;
+  }
+
+  app-produit {
+    margin-bottom: 20px;
+    display: block;
+  }
+}
+
+.panier-affichage {
+  background: white;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e0e0e0;
+  height: fit-content;
+  position: sticky;
+  top: 20px;
+
+  h3 {
+    color: #2c3e50;
+    font-size: 20px;
+    font-weight: 600;
+    margin: 0 0 16px 0;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 12px;
+  }
+}
+
+.panier-vide {
+  text-align: center;
+  padding: 60px 20px;
+  color: #95a5a6;
+  font-style: italic;
+  font-size: 16px;
+}
+
+.panier-contenu {
+  .panier-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    font-size: 14px;
+
+    thead {
+      background-color: #f0f4f8;
+      border-bottom: 2px solid #3498db;
+    }
+
+    th, td {
+      padding: 14px 12px;
+      text-align: left;
+      border-bottom: 1px solid #e0e0e0;
+    }
+
+    th {
+      font-weight: 600;
+      color: #2c3e50;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    tbody tr:hover {
+      background-color: #f8f9fa;
+    }
+  }
+
+  .panier-item {
+    &:last-child td {
+      border-bottom: 2px solid #3498db;
+    }
+  }
+}
+
+.panier-total {
+  background: linear-gradient(135deg, #f0f4f8 0%, #e8ecf1 100%);
+  padding: 18px;
+  border-radius: 8px;
+  margin-bottom: 18px;
+  text-align: right;
+  border: 1px solid #d0d8e0;
+
+  h4 {
+    color: #2c3e50;
+    margin: 0;
+    font-size: 20px;
+    font-weight: 700;
+  }
+}
+
+.btn-supprimer {
+  background-color: #e74c3c;
+  color: white;
+  padding: 8px 14px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 600;
+  transition: all 0.3s;
+
+  &:hover {
+    background-color: #c0392b;
+    box-shadow: 0 2px 6px rgba(231, 76, 60, 0.3);
+  }
+}
+
+.btn-vider {
+  width: 100%;
+  background-color: #95a5a6;
+  color: white;
+  padding: 14px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.3s;
+
+  &:hover {
+    background-color: #7f8c8d;
+    box-shadow: 0 4px 12px rgba(149, 165, 166, 0.3);
+  }
+}

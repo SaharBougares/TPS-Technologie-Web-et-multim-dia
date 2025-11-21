@@ -1,0 +1,52 @@
+<div class="question-container" *ngIf="question">
+  <!-- Activité 1: Interpolation pour afficher le numéro et la question -->
+  <div class="question-header">
+    <span class="question-number">Question {{ questionNumber }}/{{ totalQuestions }}</span>
+    <div class="progress-bar">
+      <div class="progress-fill" [style.width.%]="(questionNumber / totalQuestions) * 100"></div>
+    </div>
+  </div>
+
+  <h2 class="question-text">{{ question.question }}</h2>
+
+  <!-- Activité 4: Affichage des options avec *ngFor -->
+  <div class="options-container" *ngIf="question.type !== 'text'">
+    <button
+      *ngFor="let option of question.options"
+      class="option-button"
+      [ngClass]="{
+        'selected': selectedOption === option,
+        'correct': isAnswered && option === question.reponse,
+        'incorrect': isAnswered && selectedOption === option && !isCorrect(),
+        'disabled': isAnswered
+      }"
+      (click)="selectOption(option)"
+      [disabled]="isAnswered">
+      {{ option }}
+    </button>
+  </div>
+
+  <!-- Activité 6: Two-Way Data Binding pour réponse textuelle -->
+  <div class="text-answer-container" *ngIf="question.type === 'text'">
+    <input
+      type="text"
+      [(ngModel)]="textAnswer"
+      placeholder="Entrez votre réponse..."
+      class="text-input"
+      [disabled]="isAnswered">
+    <button
+      class="submit-button"
+      (click)="submitTextAnswer()"
+      [disabled]="isAnswered || !textAnswer.trim()">
+      Valider
+    </button>
+  </div>
+
+  <!-- Feedback après réponse -->
+  <div class="feedback" *ngIf="isAnswered">
+    <div [ngClass]="isCorrect() ? 'correct-feedback' : 'incorrect-feedback'">
+      {{ isCorrect() ? '✓ Correct!' : '✗ Incorrect' }}
+      <p *ngIf="!isCorrect()">La bonne réponse est: <strong>{{ question.reponse }}</strong></p>
+    </div>
+  </div>
+</div>

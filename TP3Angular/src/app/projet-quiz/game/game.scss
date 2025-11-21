@@ -1,0 +1,150 @@
+.game-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 30px 20px;
+}
+
+.game-content {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.score-bar {
+  display: flex;
+  justify-content: space-around;
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.score-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.score-item .label {
+  font-size: 14px;
+  color: #555;
+  font-weight: 600;
+}
+
+.score-item .value {
+  font-size: 24px;
+  font-weight: bold;
+  color: #667eea;
+
+  &.correct {
+    color: #27ae60;
+  }
+
+  &.incorrect {
+    color: #e74c3c;
+  }
+
+  &.timer {
+    color: #2ecc71;
+    transition: all 0.3s ease;
+
+    &.time-warning {
+      color: #f39c12;
+      animation: pulse 0.5s infinite;
+    }
+
+    &.time-expired {
+      color: #e74c3c;
+      animation: pulse 0.3s infinite;
+    }
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+.navigation-buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  margin-top: 30px;
+}
+
+.btn-prev,
+.btn-next {
+  flex: 1;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s;
+  color: white;
+}
+
+.btn-prev {
+  background: #95a5a6;
+
+  &:hover:not(:disabled) {
+    background: #7f8c8d;
+    transform: translateY(-2px);
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+.btn-next {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+
+  &:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+.results-section {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.restart-button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.btn-restart {
+  padding: 15px 50px;
+  background: white;
+  color: #667eea;
+  border: 2px solid #667eea;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s;
+
+  &:hover {
+    background: #667eea;
+    color: white;
+    transform: translateY(-2px);
+  }
+}

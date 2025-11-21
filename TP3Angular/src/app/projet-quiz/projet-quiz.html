@@ -1,0 +1,7 @@
+<div class="projet-quiz-wrapper">
+  <!-- Affichage de l'accueil -->
+  <app-home *ngIf="!gameStarted" (startQuiz)="startGame()"></app-home>
+
+  <!-- Affichage du jeu -->
+  <app-game *ngIf="gameStarted"></app-game>
+</div>

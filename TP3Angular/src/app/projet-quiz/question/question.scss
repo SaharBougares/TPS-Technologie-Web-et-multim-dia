@@ -1,0 +1,160 @@
+.question-container {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.question-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.question-number {
+  font-size: 14px;
+  color: #667eea;
+  font-weight: bold;
+}
+
+.progress-bar {
+  width: 200px;
+  height: 6px;
+  background: #e0e0e0;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+  transition: width 0.3s ease;
+}
+
+.question-text {
+  color: #2c3e50;
+  font-size: 24px;
+  margin-bottom: 30px;
+  font-weight: 600;
+}
+
+.options-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.option-button {
+  padding: 15px 20px;
+  border: 2px solid #e0e0e0;
+  background: white;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  color: #2c3e50;
+  transition: all 0.3s ease;
+
+  &:hover:not(.disabled) {
+    border-color: #667eea;
+    background: #f5f7ff;
+  }
+
+  &.selected {
+    border-color: #667eea;
+    background: #667eea;
+    color: white;
+  }
+
+  &.correct {
+    border-color: #27ae60;
+    background: #27ae60;
+    color: white;
+  }
+
+  &.incorrect {
+    border-color: #e74c3c;
+    background: #e74c3c;
+    color: white;
+  }
+
+  &.disabled {
+    cursor: not-allowed;
+    opacity: 0.8;
+  }
+}
+
+.text-answer-container {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.text-input {
+  flex: 1;
+  padding: 12px 15px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: border-color 0.3s;
+
+  &:focus {
+    outline: none;
+    border-color: #667eea;
+  }
+
+  &:disabled {
+    background: #f5f5f5;
+    cursor: not-allowed;
+  }
+}
+
+.submit-button {
+  padding: 12px 30px;
+  background: #667eea;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s;
+
+  &:hover:not(:disabled) {
+    background: #764ba2;
+    transform: translateY(-2px);
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+.feedback {
+  margin-top: 20px;
+  padding: 15px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.correct-feedback {
+  background: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.incorrect-feedback {
+  background: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+
+  p {
+    margin: 10px 0 0 0;
+    font-size: 14px;
+  }
+}

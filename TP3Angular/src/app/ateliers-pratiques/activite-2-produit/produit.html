@@ -1,0 +1,30 @@
+<!-- Activité 2: Property Binding pour afficher l'image -->
+<div class="produit-container">
+  <div class="produit-card" [ngClass]="{ 'out-of-stock': !enStock }">
+    <!-- Activité 2: Utiliser le property binding pour afficher l'image -->
+    <img [src]="imageUrl" [alt]="nomProduit" class="produit-image">
+
+    <!-- Activité 7: Afficher le nom du produit -->
+    <h3 class="produit-nom">{{ nomProduit }}</h3>
+
+    <!-- Activité 5: Afficher le statut du stock -->
+    <p class="stock-status" [ngClass]="{ 'en-stock': enStock, 'rupture': !enStock }">
+      {{ enStock ? 'En stock' : 'Rupture de stock' }}
+    </p>
+
+    <!-- Activité 8: Afficher le prix formaté en devise avec le pipe currency -->
+    <p class="produit-prix">Prix: {{ prix | currency:' TND ' }}</p>
+
+    <div class="button-group">
+      <!-- Activité 3: Ajouter un bouton avec event binding -->
+      <button (click)="afficherAlerte()" [disabled]="!enStock" class="btn-panier">
+        Ajouter au panier
+      </button>
+
+      <!-- Activité 5: Ajouter un bouton pour basculer le stock -->
+      <button (click)="basculerStock()" class="btn-toggle">
+        {{ enStock ? 'Marquer comme rupture' : 'Marquer comme disponible' }}
+      </button>
+    </div>
+  </div>
+</div>

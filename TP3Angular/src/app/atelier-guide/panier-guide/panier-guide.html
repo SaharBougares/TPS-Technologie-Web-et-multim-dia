@@ -1,0 +1,10 @@
+<!-- Activité 6: Afficher les items du panier -->
+<h2>Panier</h2>
+<ul>
+  <li *ngFor="let item of items">{{ item }}</li>
+</ul>
+
+<!-- Afficher un message si le panier est vide -->
+<div *ngIf="items.length === 0" class="panier-vide">
+  <p>Votre panier est vide</p>
+</div>

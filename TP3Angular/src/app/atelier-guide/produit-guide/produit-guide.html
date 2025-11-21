@@ -1,0 +1,19 @@
+<!-- Activité 5b: Utiliser le class binding et style binding -->
+<div [ngClass]="{'en-stock': enStock, 'hors-stock': !enStock}"
+     [ngStyle]="{'opacity': enStock ? '1' : '0.5'}">
+  
+  <!-- Activité 7: Afficher le nom du produit avec interpolation -->
+  <h3>{{ nomProduit }}</h3>
+  <p>Description du produit...</p>
+
+
+  <!-- Activité 5c: Bouton pour basculer le stock -->
+  <button (click)="toggleStock()" class="btn-toggle">
+    {{ enStock ? 'Marquer comme Hors Stock' : 'Marquer comme En Stock' }}
+  </button>
+
+  <!-- Activité 6: Bouton pour ajouter au panier avec @Output -->
+  <button (click)="ajouterProduit()" [disabled]="!enStock" class="btn-panier">
+    Ajouter au Panier
+  </button>
+</div>

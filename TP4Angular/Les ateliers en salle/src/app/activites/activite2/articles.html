@@ -1,0 +1,51 @@
+<div class="card">
+  <h2>Activité 2 : Liste d'articles avec ngFor</h2>
+
+  <div class="form-section">
+    <h3>Ajouter un nouvel article</h3>
+    <div class="form-group">
+      <label>Titre de l'article :</label>
+      <input 
+        type="text" 
+        [(ngModel)]="newTitre"
+        placeholder="Entrez le titre"
+        (keyup.enter)="addArticle()">
+    </div>
+
+    <div class="form-group">
+      <label>Contenu de l'article :</label>
+      <textarea 
+        [(ngModel)]="newContenu"
+        placeholder="Entrez le contenu"
+        rows="3"></textarea>
+    </div>
+
+    <button (click)="addArticle()" class="btn-primary">➕ Ajouter l'article</button>
+  </div>
+
+  <div class="articles-section">
+    <h3>Articles ({{ articles.length }})</h3>
+    
+    <div *ngIf="articles.length === 0" class="no-articles">
+      <p>Aucun article pour le moment. Ajoutez-en un!</p>
+    </div>
+
+    <div *ngFor="let article of articles; let i = index" class="article-card">
+      <div class="article-header">
+        <h4>{{ article.titre }}</h4>
+        <button (click)="deleteArticle(i)" class="btn-delete">🗑️ Supprimer</button>
+      </div>
+      <p class="article-content">{{ article.contenu }}</p>
+    </div>
+  </div>
+
+  <div class="info-box">
+    <h3>Concepts utilisés :</h3>
+    <ul>
+      <li><strong>*ngFor</strong> : Itération sur le tableau d'articles</li>
+      <li><strong>Tableau d'objets</strong> : Chaque article a titre et contenu</li>
+      <li><strong>Ajout dynamique</strong> : Ajouter des articles à la liste</li>
+      <li><strong>Suppression</strong> : Supprimer des articles</li>
+    </ul>
+  </div>
+</div>

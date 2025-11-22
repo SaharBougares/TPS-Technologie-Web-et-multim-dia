@@ -1,0 +1,29 @@
+<div class="app-container">
+  <header class="app-header">
+    <h1>🎓 Ateliers en Salle - Angular</h1>
+    <p>6 Activités pour maîtriser les directives Angular</p>
+  </header>
+
+  <nav class="tabs-navigation">
+    <button 
+      *ngFor="let i of [1, 2, 3, 4, 5, 6]"
+      [class.active]="activeTab === i"
+      (click)="selectTab(i)"
+      class="tab-button">
+      Activité {{ i }}
+    </button>
+  </nav>
+
+  <main class="app-content">
+    <app-activite1 *ngIf="activeTab === 1"></app-activite1>
+    <app-activite2 *ngIf="activeTab === 2"></app-activite2>
+    <app-activite3 *ngIf="activeTab === 3"></app-activite3>
+    <app-activite4 *ngIf="activeTab === 4"></app-activite4>
+    <app-activite5 *ngIf="activeTab === 5"></app-activite5>
+    <app-activite6 *ngIf="activeTab === 6"></app-activite6>
+  </main>
+
+  <footer class="app-footer">
+    <p>créé par sahar Bougares</p>
+  </footer>
+</div>

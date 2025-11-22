@@ -1,0 +1,73 @@
+<div class="card">
+  <h2>Activité 5 : Combinaison de ngIf, ngFor, ngClass et ngStyle</h2>
+
+  <div class="progress-section">
+    <h3>Progression</h3>
+    <div class="progress-info">
+      <span>{{ completedCount }} / {{ totalCount }} tâches complétées</span>
+      <span class="percentage">{{ progressPercentage | number:'1.0-0' }}%</span>
+    </div>
+    <div class="progress-bar">
+      <div class="progress-fill" [style.width.%]="progressPercentage"></div>
+    </div>
+  </div>
+
+  <div class="form-section">
+    <h3>Ajouter une nouvelle tâche</h3>
+    <div class="form-group">
+      <label>Description :</label>
+      <input 
+        type="text" 
+        [(ngModel)]="newDescription"
+        placeholder="Entrez la description"
+        (keyup.enter)="addTache()">
+    </div>
+
+    <div class="form-group">
+      <label>Priorité :</label>
+      <select [(ngModel)]="newPriorite">
+        <option value="haute">🔴 Haute</option>
+        <option value="moyenne">🟡 Moyenne</option>
+        <option value="basse">🟢 Basse</option>
+      </select>
+    </div>
+
+    <button (click)="addTache()" class="btn-primary">➕ Ajouter la tâche</button>
+  </div>
+
+  <div class="tasks-section">
+    <h3>Tâches ({{ taches.length }})</h3>
+
+    <div *ngIf="taches.length === 0" class="no-tasks">
+      <p>Aucune tâche pour le moment. Ajoutez-en une!</p>
+    </div>
+
+    <div *ngFor="let tache of taches; let i = index" 
+         [ngClass]="getTacheClass(tache)"
+         class="task-card">
+      <div class="task-content">
+        <p class="task-description">{{ tache.description }}</p>
+        <span class="task-priority" [ngStyle]="{ backgroundColor: getPrioriteColor(tache.priorite) }">
+          {{ tache.priorite }}
+        </span>
+      </div>
+
+      <button (click)="toggleTache(i)" class="btn-toggle">
+        {{ tache.statut ? '✅ Complétée' : '⭕ À faire' }}
+      </button>
+
+      <button (click)="deleteTache(i)" class="btn-delete">🗑️</button>
+    </div>
+  </div>
+
+  <div class="info-box">
+    <h3>Concepts utilisés :</h3>
+    <ul>
+      <li><strong>*ngIf</strong> : Affichage conditionnel du message "Aucune tâche"</li>
+      <li><strong>*ngFor</strong> : Itération sur le tableau de tâches</li>
+      <li><strong>[ngClass]</strong> : Classes dynamiques selon le statut et la priorité</li>
+      <li><strong>[ngStyle]</strong> : Couleur dynamique de la priorité</li>
+      <li><strong>Propriétés calculées</strong> : Progression et statistiques</li>
+    </ul>
+  </div>
+</div>

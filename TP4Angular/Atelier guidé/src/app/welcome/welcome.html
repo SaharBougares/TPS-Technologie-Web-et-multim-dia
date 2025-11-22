@@ -1,0 +1,7 @@
+<!-- Bouton pour basculer l'état de connexion -->
+<button (click)="toggleLogin()">
+  {{ isLoggedIn ? 'Se déconnecter' : 'Se connecter' }}
+</button>
+
+<!-- Message de bienvenue conditionnel -->
+<p *ngIf="isLoggedIn">Bienvenue, utilisateur!</p>

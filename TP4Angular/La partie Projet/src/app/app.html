@@ -1,0 +1,86 @@
+<div class="container">
+  <!-- Score Section -->
+  <div class="score-section">
+    <h2>🎮 Quiz Game</h2>
+    <p>Score actuel : {{ score }}</p>
+    <p>Bonnes réponses : {{ correctAnswers }}</p>
+    <p>Mauvaises réponses : {{ incorrectAnswers }}</p>
+  </div>
+
+  <!-- Étape 1 & 2 : Affichage Conditionnel avec *ngIf et Itération avec *ngFor -->
+  <!-- Défi 1 : Questions affichées une à la fois -->
+  <div *ngFor="let question of questions">
+    <!-- Étape 3 : Combinaison de *ngIf et *ngFor - Masquer une question une fois répondue -->
+    <div *ngIf="!question.answered">
+      <h3>{{ question.question }}</h3>
+      
+      <!-- Itération sur les options avec *ngFor -->
+      <div style="display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 20px;">
+        <button 
+          *ngFor="let option of question.options"
+          class="quiz-button"
+          [ngClass]="{
+            'correct-answer': question.answered && isCorrect(option, question),
+            'incorrect-answer': question.answered && !isCorrect(option, question) && option === question.selectedAnswer,
+            'neutral-answer': question.answered && !isCorrect(option, question) && option !== question.selectedAnswer
+          }"
+          [disabled]="question.answered"
+          (click)="onSelectOption(option, question)">
+          {{ option }}
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Affichage du message de feedback avec *ngIf -->
+  <div *ngIf="isReponse; else incorrectMessage" class="feedback-message correct">
+    <p>✅ Bonne réponse ! Vous gagnez 10 points.</p>
+  </div>
+  <ng-template #incorrectMessage>
+    <div *ngIf="showFeedback" class="feedback-message incorrect">
+      <p>❌ Mauvaise réponse. Vous perdez 5 points.</p>
+    </div>
+  </ng-template>
+
+  <!-- Défi 2 : Tableau d'historique des réponses avec *ngFor -->
+  <div *ngIf="answerHistory.length > 0" class="history-section">
+    <h3>📋 Historique des réponses</h3>
+    <div class="history-item" *ngFor="let item of answerHistory" [ngClass]="item.isCorrect ? 'correct' : 'incorrect'">
+      <div class="question-title">{{ item.question }}</div>
+      <span class="answer-status" [ngClass]="item.isCorrect ? 'correct-answer' : 'incorrect-answer'">
+        {{ item.isCorrect ? '✓ Correct' : '✗ Incorrect' }}
+      </span>
+    </div>
+  </div>
+
+  <!-- Défi 3 : Bouton "Terminer le jeu" visible uniquement quand toutes les questions sont répondues -->
+  <button *ngIf="allQuestionsAnswered" (click)="finishGame()" class="finish-button">
+    ✓ Terminer le jeu
+  </button>
+
+  <!-- Affichage des résultats finaux -->
+  <div *ngIf="gameFinished" class="game-finished">
+    <h2>🎉 Jeu Terminé!</h2>
+    <div class="final-score">{{ score }}</div>
+    <p style="color: #6b7280; font-size: 1.1em; margin-bottom: 30px;">points</p>
+    
+    <div class="final-stats">
+      <div class="stat">
+        <div class="stat-label">Bonnes réponses</div>
+        <div class="stat-value correct">{{ correctAnswers }}</div>
+      </div>
+      <div class="stat">
+        <div class="stat-label">Mauvaises réponses</div>
+        <div class="stat-value incorrect">{{ incorrectAnswers }}</div>
+      </div>
+      <div class="stat">
+        <div class="stat-label">Taux de réussite</div>
+        <div class="stat-value correct">{{ ((correctAnswers / questions.length) * 100) | number: '1.0-0' }}%</div>
+      </div>
+    </div>
+
+    <button (click)="resetGame()" class="finish-button">
+      🔄 Recommencer
+    </button>
+  </div>
+</div>

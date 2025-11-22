@@ -1,0 +1,103 @@
+<div class="card">
+  <h2>Activité 4 : Styles dynamiques avec [ngStyle]</h2>
+
+  <div class="form-section">
+    <h3>Ajouter un nouveau produit</h3>
+    <div class="form-group">
+      <label>Nom du produit :</label>
+      <input 
+        type="text" 
+        [(ngModel)]="newNom"
+        placeholder="Entrez le nom">
+    </div>
+
+    <div class="form-group">
+      <label>Prix :</label>
+      <input 
+        type="number" 
+        [(ngModel)]="newPrix"
+        min="0"
+        placeholder="Entrez le prix">
+    </div>
+
+    <div class="form-group">
+      <label>Stock :</label>
+      <input 
+        type="number" 
+        [(ngModel)]="newStock"
+        min="0"
+        placeholder="Entrez la quantité">
+    </div>
+
+    <button (click)="addProduit()" class="btn-primary">➕ Ajouter le produit</button>
+  </div>
+
+  <div class="products-section">
+    <h3>Produits ({{ produits.length }})</h3>
+
+    <div *ngFor="let produit of produits; let i = index" class="product-card">
+      <div class="product-header">
+        <h4>{{ produit.nom }}</h4>
+        <button (click)="deleteProduit(i)" class="btn-delete">🗑️</button>
+      </div>
+
+      <div class="product-info">
+        <div class="info-item">
+          <span class="label">Prix :</span>
+          <span class="value">{{ produit.prix }}€</span>
+        </div>
+        <div class="info-item">
+          <span class="label">Stock :</span>
+          <span class="value" [ngStyle]="getStockStyle(produit.stock)">
+            {{ produit.stock }} unités
+          </span>
+        </div>
+        <div class="info-item">
+          <span class="label">Statut :</span>
+          <span class="status" [ngStyle]="{ color: getStockColor(produit.stock) }">
+            {{ getStockStatus(produit.stock) }}
+          </span>
+        </div>
+      </div>
+
+      <div class="stock-progress">
+        <div class="progress-bar">
+          <div class="progress-fill" [style.width.%]="Math.min((produit.stock / 20) * 100, 100)"
+               [style.backgroundColor]="getStockColor(produit.stock)"></div>
+        </div>
+      </div>
+
+      <div class="stock-controls">
+        <button (click)="decrementStock(i)" class="btn-control">➖</button>
+        <span class="stock-value">{{ produit.stock }}</span>
+        <button (click)="incrementStock(i)" class="btn-control">➕</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="legend">
+    <h3>Légende des niveaux de stock :</h3>
+    <div class="legend-item">
+      <div class="legend-color" style="background-color: #28a745;"></div>
+      <span>Stock normal (> 50 unités)</span>
+    </div>
+    <div class="legend-item">
+      <div class="legend-color" style="background-color: #fd7e14;"></div>
+      <span>Stock faible (20-50 unités)</span>
+    </div>
+    <div class="legend-item">
+      <div class="legend-color" style="background-color: #dc3545;"></div>
+      <span>Rupture de stock (< 20 unités)</span>
+    </div>
+  </div>
+
+  <div class="info-box">
+    <h3>Concepts utilisés :</h3>
+    <ul>
+      <li><strong>[ngStyle]</strong> : Applique des styles dynamiques</li>
+      <li><strong>Propriété stock</strong> : Détermine la couleur</li>
+      <li><strong>Trois niveaux</strong> : Vert, orange, rouge</li>
+      <li><strong>Barre de progression</strong> : Visualise le stock</li>
+    </ul>
+  </div>
+</div>

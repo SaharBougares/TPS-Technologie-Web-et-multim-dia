@@ -1,0 +1,38 @@
+<div class="card">
+  <h2>Activité 1 : Affichage conditionnel avec ngIf</h2>
+  
+  <div class="form-group">
+    <label>Entrez votre prénom pour vous connecter :</label>
+    <input 
+      type="text" 
+      [(ngModel)]="inputPrenom"
+      placeholder="Entrez votre prénom"
+      (keyup.enter)="toggleLogin()">
+  </div>
+
+  <div class="flex-container">
+    <button (click)="toggleLogin()" class="btn-primary">
+      {{ isLoggedIn ? 'Se déconnecter' : 'Se connecter' }}
+    </button>
+    <span *ngIf="errorMessage" class="error-message">{{ errorMessage }}</span>
+  </div>
+
+  <div class="result-section">
+    <div *ngIf="isLoggedIn" class="welcome-message">
+      <p>✅ Bienvenue, {{ userPrenom }}!</p>
+    </div>
+    <div *ngIf="!isLoggedIn" class="not-logged-message">
+      <p>❌ Vous n'êtes pas connecté</p>
+    </div>
+  </div>
+
+  <div class="info-box">
+    <h3>Concepts utilisés :</h3>
+    <ul>
+      <li><strong>*ngIf</strong> : Affichage conditionnel du message</li>
+      <li><strong>Propriété isLoggedIn</strong> : Gère l'état de connexion</li>
+      <li><strong>Événement (click)</strong> : Bascule l'état de connexion</li>
+      <li><strong>Validation</strong> : Vérifie que le prénom correspond</li>
+    </ul>
+  </div>
+</div>

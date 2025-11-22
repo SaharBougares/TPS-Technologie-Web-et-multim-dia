@@ -1,0 +1,74 @@
+<div class="card">
+  <h2>Activité 3 : Classes dynamiques avec [ngClass]</h2>
+
+  <div class="form-section">
+    <h3>Ajouter un nouvel article</h3>
+    <div class="form-group">
+      <label>Titre de l'article :</label>
+      <input 
+        type="text" 
+        [(ngModel)]="newTitre"
+        placeholder="Entrez le titre">
+    </div>
+
+    <div class="form-group">
+      <label>Contenu de l'article :</label>
+      <textarea 
+        [(ngModel)]="newContenu"
+        placeholder="Entrez le contenu"
+        rows="3"></textarea>
+    </div>
+
+    <div class="form-group">
+      <label>Niveau d'importance :</label>
+      <select [(ngModel)]="newImportance">
+        <option value="élevée">🔴 Élevée</option>
+        <option value="moyenne">🟡 Moyenne</option>
+        <option value="faible">🟢 Faible</option>
+      </select>
+    </div>
+
+    <button (click)="addArticle()" class="btn-primary">➕ Ajouter l'article</button>
+  </div>
+
+  <div class="articles-section">
+    <h3>Articles ({{ articles.length }})</h3>
+
+    <div *ngFor="let article of articles; let i = index" 
+         [ngClass]="getArticleClass(article.importance)"
+         class="article-card">
+      <div class="article-header">
+        <h4>{{ article.titre }}</h4>
+        <span class="importance-badge">{{ article.importance }}</span>
+        <button (click)="deleteArticle(i)" class="btn-delete">🗑️</button>
+      </div>
+      <p class="article-content">{{ article.contenu }}</p>
+    </div>
+  </div>
+
+  <div class="legend">
+    <h3>Légende des niveaux d'importance :</h3>
+    <div class="legend-item">
+      <div class="legend-box importance-élevée"></div>
+      <span>Élevée (Rouge)</span>
+    </div>
+    <div class="legend-item">
+      <div class="legend-box importance-moyenne"></div>
+      <span>Moyenne (Orange)</span>
+    </div>
+    <div class="legend-item">
+      <div class="legend-box importance-faible"></div>
+      <span>Faible (Vert)</span>
+    </div>
+  </div>
+
+  <div class="info-box">
+    <h3>Concepts utilisés :</h3>
+    <ul>
+      <li><strong>[ngClass]</strong> : Applique des classes dynamiques</li>
+      <li><strong>Propriété importance</strong> : Détermine la classe CSS</li>
+      <li><strong>Trois niveaux</strong> : Élevée, moyenne, faible</li>
+      <li><strong>Styles CSS</strong> : Couleurs selon l'importance</li>
+    </ul>
+  </div>
+</div>

@@ -1,0 +1,68 @@
+<div class="main-container">
+  <h2>📰 Gestion des Articles</h2>
+
+  <!-- Formulaire pour ajouter un nouvel article -->
+  <div class="form-container">
+    <h3>✏️ Ajouter un nouvel article</h3>
+    
+    <!-- Message d'erreur de validation -->
+    <div *ngIf="validationError" class="error-message">
+      ⚠️ {{ validationError }}
+    </div>
+
+    <div class="form-group">
+      <label for="title">Titre de l'article</label>
+      <input 
+        id="title"
+        type="text" 
+        [(ngModel)]="newTitle" 
+        placeholder="Entrez le titre de l'article"
+        class="form-input" />
+    </div>
+
+    <div class="form-group">
+      <label for="content">Contenu de l'article</label>
+      <textarea 
+        id="content"
+        [(ngModel)]="newContent" 
+        placeholder="Entrez le contenu de l'article"
+        class="form-textarea"
+        rows="4"></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="importance">Niveau d'importance</label>
+      <select id="importance" [(ngModel)]="newImportance" class="form-select">
+        <option value="élevée">🔴 Élevée</option>
+        <option value="moyenne">🟠 Moyenne</option>
+        <option value="faible">🟢 Faible</option>
+      </select>
+    </div>
+
+    <button (click)="addArticle()" class="btn-submit">➕ Ajouter l'article</button>
+  </div>
+
+  <!-- Liste des articles -->
+  <div class="articles-list">
+    <h3>📋 Liste des articles ({{ articles.length }})</h3>
+    
+    <div *ngIf="articles.length === 0" class="empty-state">
+      <p>Aucun article pour le moment. Créez-en un ! 🚀</p>
+    </div>
+
+    <div *ngFor="let article of articles; let i = index" [ngClass]="{
+      'important': article.importance === 'élevée',
+      'moyen': article.importance === 'moyenne',
+      'faible': article.importance === 'faible'
+    }" class="article-item">
+      <div class="article-header">
+        <h4>{{ article.titre }}</h4>
+        <span class="importance-badge">{{ article.importance }}</span>
+      </div>
+      <p class="article-content">{{ article.contenu }}</p>
+      <div class="article-footer">
+        <small>Article #{{ i + 1 }}</small>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,106 @@
+<div class="card">
+  <h2>Activité 6 : Affichage conditionnel avancé avec ngIf et else</h2>
+
+  <div class="progress-section">
+    <h3>Progression</h3>
+    <div class="progress-info">
+      <span>{{ completedCount }} / {{ totalCount }} tâches complétées</span>
+      <span class="percentage">{{ progressPercentage | number:'1.0-0' }}%</span>
+    </div>
+    <div class="progress-bar">
+      <div class="progress-fill" [style.width.%]="progressPercentage"></div>
+    </div>
+  </div>
+
+  <div class="form-section">
+    <h3>Ajouter une nouvelle tâche</h3>
+    <div class="form-group">
+      <label>Description :</label>
+      <input 
+        type="text" 
+        [(ngModel)]="newDescription"
+        placeholder="Entrez la description"
+        (keyup.enter)="addTache()">
+    </div>
+
+    <div class="form-group">
+      <label>Priorité :</label>
+      <select [(ngModel)]="newPriorite">
+        <option value="haute">🔴 Haute</option>
+        <option value="moyenne">🟡 Moyenne</option>
+        <option value="basse">🟢 Basse</option>
+      </select>
+    </div>
+
+    <div class="button-group">
+      <button (click)="addTache()" class="btn-primary">➕ Ajouter la tâche</button>
+      <button (click)="clearCompleted()" class="btn-secondary" *ngIf="completedCount > 0">
+        🗑️ Effacer les complétées
+      </button>
+    </div>
+  </div>
+
+  <!-- Section Tâches en cours -->
+  <div class="tasks-section">
+    <h3>Tâches en cours ({{ activeTaches.length }})</h3>
+
+    <div *ngIf="activeTaches.length > 0; else pasDeTaches">
+      <div *ngFor="let tache of activeTaches; let i = index" 
+           [ngClass]="getTacheClass(tache)"
+           class="task-card">
+        <div class="task-content">
+          <p class="task-description">{{ tache.description }}</p>
+          <span class="task-priority" [ngStyle]="{ backgroundColor: getPrioriteColor(tache.priorite) }">
+            {{ tache.priorite }}
+          </span>
+        </div>
+
+        <button (click)="toggleTache(taches.indexOf(tache))" class="btn-toggle">
+          {{ tache.statut ? '✅ Complétée' : '⭕ À faire' }}
+        </button>
+
+        <button (click)="deleteTache(taches.indexOf(tache))" class="btn-delete">🗑️</button>
+      </div>
+    </div>
+
+    <ng-template #pasDeTaches>
+      <div class="no-tasks">
+        <p>Vous n'avez pas de tâches en cours</p>
+      </div>
+    </ng-template>
+  </div>
+
+  <!-- Section Tâches complétées -->
+  <div class="tasks-section" *ngIf="completedTaches.length > 0">
+    <h3>Tâches complétées ({{ completedCount }})</h3>
+
+    <div *ngFor="let tache of completedTaches; let i = index" 
+         [ngClass]="getTacheClass(tache)"
+         class="task-card">
+      <div class="task-content">
+        <p class="task-description">{{ tache.description }}</p>
+        <span class="task-priority" [ngStyle]="{ backgroundColor: getPrioriteColor(tache.priorite) }">
+          {{ tache.priorite }}
+        </span>
+      </div>
+
+      <button (click)="toggleTache(taches.indexOf(tache))" class="btn-toggle">
+        {{ tache.statut ? '✅ Complétée' : '⭕ À faire' }}
+      </button>
+
+      <button (click)="deleteTache(taches.indexOf(tache))" class="btn-delete">🗑️</button>
+    </div>
+  </div>
+
+  <div class="info-box">
+    <h3>Concepts utilisés :</h3>
+    <ul>
+      <li><strong>*ngIf...else</strong> : Affichage alternatif avec ng-template</li>
+      <li><strong>ng-template</strong> : Template alternatif pour "Aucune tâche en cours"</li>
+      <li><strong>*ngFor</strong> : Itération sur les tâches</li>
+      <li><strong>[ngClass]</strong> : Classes dynamiques selon le statut</li>
+      <li><strong>[ngStyle]</strong> : Couleur dynamique de la priorité</li>
+      <li><strong>Propriétés calculées</strong> : Getters pour les tâches actives/complétées</li>
+    </ul>
+  </div>
+</div>
